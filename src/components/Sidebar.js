@@ -1,16 +1,22 @@
-import { Link } from 'react-router-dom';
-import './Sidebar.css'; 
+import React from 'react'
 
-export default function Sidebar() {
-    //Todo: make it relative link paths, ie. if in Anime tab, link to Anime/search, etc
-    return (
-        <div className="Sidebar">
-            <ul>
-                <li><Link to="/search">Add to your list!</Link></li>
-                <li><Link to="/suggestions">Discover something New!</Link></li>
-            </ul>
-        </div>
-    );
+function Sidebar({ topAnime, manga }) {
+	return (
+		<aside>
+			<nav>
+				<h3 className='top-header'>Top {manga ? 'Manga' : 'Anime'}</h3>
+				{topAnime.map(anime => (
+					<a 
+						href={anime.entry.url} 
+						target="_blank"
+						key={anime.entry.mal_id} 
+						rel="noreferrer">
+						{ anime.entry.title }
+					</a>
+				))}
+			</nav>
+		</aside>
+	)
 }
 
-
+export default Sidebar
