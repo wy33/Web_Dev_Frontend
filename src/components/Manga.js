@@ -20,11 +20,40 @@ export default function MainManga() {
 		FetchAnime(search);
 	}
 
+  const PostManga = async (data) => {
+    let temp = [];  // Hold genres for each manga entry
+    
+    data.forEach((entry) => {
+      entry.genres.forEach((genre) => {
+        temp.push(genre.name);
+        console.log(genre.name);
+      });
+
+      fetch('http://localhost:3001/manga', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          title: entry.title_english,
+          rating: entry.score,
+          image: entry.images.jpg.image_url,
+          url: entry.url,
+          genres: temp
+        })
+      })
+      .then(temp = []); // Empty temp array for next entry's set of genres
+    })
+  }
+
 	const FetchAnime = async (query) => {
     const animes = await fetch(`https://api.jikan.moe/v4/manga?q=${query}`)
     .then(res => res.json())
     .catch(err => console.error(err));
     SetAnimeList(animes.data);
+
+    // Post data to database
+    PostManga(animes.data);
 	}
 
 	useEffect(() => {
