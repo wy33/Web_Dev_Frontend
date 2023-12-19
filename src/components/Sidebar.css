@@ -1,12 +1,11 @@
 .Sidebar {
-    width: 20%;
-    right: 5px;
+    width: 15%;
+    right: 0px;
     position: absolute;
-    top: 40px;
+    top: 45px;
     text-align:left;
-    color: deeppink;
     margin: auto;
-    background-color: #3E61B2;
+    background-color: #6E51B2;
     color: #fff;
     z-index: 9999;
     box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
