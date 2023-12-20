@@ -21,3 +21,5 @@ UI (React)
     API Calls (External and to Backend)
         Backend: Using the backend routes, should be able to perform CRUD operations on database models (https://github.com/wy33/Web_Dev_Frontend/blob/218f5546891bf32c25bb1dce57f914199ea9c5c8/src/components/Anime.js#L23)
         External: Should make 2 or more External API calls (https://github.com/wy33/Web_Dev_Frontend/blob/218f5546891bf32c25bb1dce57f914199ea9c5c8/src/components/Manga.js#L14 & Backend)
+
+Extra Credit: Project that isn't the Employee Management System
